@@ -17,7 +17,7 @@ To generate the RRT implementation, run the code `random_tree.py`.
 - The number of obsticles can be changed from within the code.
 
 An RRT implementation without obsticles:
-![Tast_1](https://github.com/YaelBenShalom/Turtle-Control/blob/master/GIFs/turtle%20race%20-%20HW1.gif)
+![Tast_1](https://github.com/YaelBenShalom/RRT-Challenge/blob/master/images/Task_1.png)
 
 An RRT implementation with 20 obsticles:
-![Tast_2](https://github.com/YaelBenShalom/Turtle-Control/blob/master/GIFs/turtle%20race%20-%20HW1.gif)
+![Tast_2](https://github.com/YaelBenShalom/RRT-Challenge/blob/master/images/Task_2.png)
