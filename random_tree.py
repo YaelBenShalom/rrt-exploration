@@ -15,7 +15,7 @@ class RANDOM_TREE:
         self.q_new = []
         self.q_goal = []
         self.obsticles = []
-        self.number_of_obsticles = 20
+        self.number_of_obsticles = 0
 
 
     def RRT_generator(self):
@@ -32,7 +32,7 @@ class RANDOM_TREE:
                 self.K = self.K-1
                 plt.plot([self.q_near[0], self.q_new[0]], [self.q_near[1], self.q_new[1]], color='blue', markersize=1)
                 plt.scatter(self.q_new[0], self.q_new[1], color='black', s=1)
-        plt.title('An RRT with K vertices')  
+        plt.title(f'An RRT with {self.number_of_obsticles} obsticles')  
         plt.show() 
 
 
