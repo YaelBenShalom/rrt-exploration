@@ -1,4 +1,4 @@
-# MECH_ENG_495 - Homework 1
+# MRS Hackathon
 GitHub repository - https://github.com/YaelBenShalom/RRT-Challenge
 
 ## Overview

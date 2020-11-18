@@ -5,34 +5,37 @@ import numpy
 
 class RANDOM_TREE:
     def __init__(self, K, delta, D):
-        # self.q_init = q_init                        # Initial configuration
+        # self.q_init = q_init                      # Initial configuration
         self.K = K                                  # Number of vertices in RRT 
-        self.delta = delta                          # Incrimental distance
+        self.delta = delta                          # Incremental distance
         self.D = D                                  # The planning domain
         self.G = []                                 # Initial RRT list
         self.q_rand = []
         self.q_near = []
         self.q_new = []
+        self.q_init = []
         self.q_goal = []
-        self.obsticles = []
-        self.number_of_obsticles = 0
+        self.number_of_obstacles = 20
+        self.obstacles = []
 
 
     def RRT_generator(self):
-        self.generate_obsticles(self.number_of_obsticles)
+        self.generate_obstacles(self.number_of_obstacles)
         self.random_q_init_and_goal()
         self.G = [self.q_init]                           # Adding the initial configuration to the RRT list
-        plt.scatter(self.q_init[0], self.q_init[1], color='black', s=1)
+        # plt.figure()
+        plt.scatter(self.q_init[0], self.q_init[1], color='green', s=3)
+        plt.scatter(self.q_goal[0], self.q_goal[1], color='green', s=3)
         while self.K:
             self.q_rand = self.random_config(self.D)
             self.q_near = self.nearest_vertex(self.q_rand, self.G)
             self.q_new = self.new_config(self.q_near, self.q_rand, self.delta)
-            if self.check_collision(self.q_new) == False:
+            if not self.check_collision(self.q_new):
                 self.G.append(self.q_new)                
                 self.K = self.K-1
                 plt.plot([self.q_near[0], self.q_new[0]], [self.q_near[1], self.q_new[1]], color='blue', markersize=1)
                 plt.scatter(self.q_new[0], self.q_new[1], color='black', s=1)
-        plt.title(f'An RRT with {self.number_of_obsticles} obsticles')  
+        plt.title(f'An RRT with {self.number_of_obstacles} obstacles')
         plt.show() 
 
 
@@ -62,33 +65,35 @@ class RANDOM_TREE:
 
     def check_collision(self, point):
         collision = False
-        for i in self.obsticles:
+        for i in self.obstacles:
             if self.distance(i[0], point) < i[1]:
                 collision = True
         return collision
 
-    # def collision_checking(self, q_near, q_new):
 
     def random_q_init_and_goal(self):
         self.q_init = [random.randrange(self.D[0]),random.randrange(self.D[1])]
+        self.q_goal = [random.randrange(self.D[0]),random.randrange(self.D[1])]
         while self.check_collision(self.q_init):
             self.q_init = [random.randrange(self.D[0]),random.randrange(self.D[1])]
+        while self.check_collision(self.q_goal):
+            self.q_goal = [random.randrange(self.D[0]),random.randrange(self.D[1])]
 
 
-    def generate_obsticles(self, number_of_obsicles):
-        while  number_of_obsicles:
+    def generate_obstacles(self, number_of_obstacles):
+        while number_of_obstacles:
             circle_center = (random.randrange(self.D[0]), random.randrange(self.D[1]))
-            circle_redius = random.randrange(10)
-            circle = plt.Circle(circle_center, circle_redius, color='r')
+            circle_radius = random.randrange(10)
+            circle = plt.Circle(circle_center, circle_radius, color='r')
             plt.gcf().gca().add_artist(circle)
-            self.obsticles.append([circle_center, circle_redius])
-            number_of_obsicles = number_of_obsicles - 1
+            self.obstacles.append([circle_center, circle_radius])
+            number_of_obstacles = number_of_obstacles - 1
 
 
 def main():
-    randor_tree = RANDOM_TREE(500, 1, [100,100])
-    randor_tree.RRT_generator()
-    # print(randor_tree)
+    random_tree = RANDOM_TREE(500, 1, [100,100])
+    random_tree.RRT_generator()
+    # print(random_tree)
 
 
 if __name__ == "__main__":
