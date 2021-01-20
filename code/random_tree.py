@@ -23,18 +23,19 @@ class RandomTree:
         self.generate_obstacles(self.number_of_obstacles)
         self.random_q_init_and_goal()
         self.G = [self.q_init]  # Adding the initial configuration to the RRT list
-        plt.figure()
+        # plt.figure()
         plt.axis([0, self.D[0], 0, self.D[1]])
         plt.title(f'An RRT with {self.number_of_obstacles} Obstacles and {self.K} Iterations')
         plt.scatter(self.q_init[0], self.q_init[1], color='green', s=3)
         # plt.scatter(self.q_goal[0], self.q_goal[1], color='green', s=3)
         for k in range(self.K):
+            # print(k)
             self.q_rand = self.random_config(self.D)
             self.q_near = self.nearest_vertex(self.q_rand, self.G)
             self.q_new = self.new_config(self.q_near, self.q_rand, self.delta)
             if not self.check_collision(self.q_new):
                 self.G.append(self.q_new)
-                # plt.pause(1e-3)
+                # plt.pause(1e-5)
                 plt.plot([self.q_near[0], self.q_new[0]], [self.q_near[1], self.q_new[1]], color='blue', markersize=1)
                 plt.scatter(self.q_new[0], self.q_new[1], color='black', s=1)
         plt.show()
@@ -89,7 +90,7 @@ class RandomTree:
 
 
 def main():
-    random_tree = RandomTree(1000, 1, [100, 100])
+    random_tree = RandomTree(1000, 2, [100, 100])
     random_tree.RRT_generator()
     # print(random_tree)
 

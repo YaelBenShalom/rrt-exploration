@@ -18,7 +18,7 @@ To generate the RRT implementation, run the code `random_tree.py`.
 - The number of obstacles can be changed from within the code.
 
 An RRT implementation without obstacles:
-![Tast_1](https://github.com/YaelBenShalom/RRT-Challenge/blob/master/images/Task_1.png)
+![Tast_1](https://github.com/YaelBenShalom/RRT-Challenge/blob/master/images/Task_1(2).png)
 
 An RRT implementation with 20 obstacles:
-![Tast_2](https://github.com/YaelBenShalom/RRT-Challenge/blob/master/images/Task_2.png)
+![Tast_2](https://github.com/YaelBenShalom/RRT-Challenge/blob/master/images/Task_2(2).png)
