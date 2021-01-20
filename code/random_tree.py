@@ -16,7 +16,7 @@ class RandomTree:
         self.q_new = []
         self.q_init = []
         self.q_goal = []
-        self.number_of_obstacles = 0
+        self.number_of_obstacles = 20
         self.obstacles = []
 
     def RRT_generator(self):
@@ -90,7 +90,7 @@ class RandomTree:
 
 
 def main():
-    random_tree = RandomTree(1000, 2, [100, 100])
+    random_tree = RandomTree(1500, 1, [100, 100])
     random_tree.RRT_generator()
     # print(random_tree)
 
