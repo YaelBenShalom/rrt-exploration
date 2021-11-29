@@ -6,7 +6,7 @@ Author: Yael Ben Shalom
 
 - [Overview](#overview)
   - [Simple RRT](#simple-rrt)
-  - [Planning a Path with Obstacles](#planning-a-path-with-obstacles)
+  - [Path Planning with Obstacles](#path-planning-with-obstacles)
 - [Usage and Configuration Instructions](#usage-and-configuration-instructions)
 - [Results](#results)
 
@@ -24,21 +24,21 @@ Path planning is the task of moving a robot from one location to another, while 
 
 Simple RRT implementation in a two-dimensional domain, _D=[0,100]X[0,100]_
 
-### Planning a Path with Obstacles
+### Path Planning with Obstacles
 
 RRT implementation in a two-dimensional domain, _D=[0,100]X[0,100]_, with circular obstacles.
 
 ## Usage and Configuration Instructions
 
-1. Clone the repository:
-  
-  `git clone https://github.com/YaelBenShalom/RRT-Challenge.git`
+1. Clone the repository:<br>
+  ```
+  git clone https://github.com/YaelBenShalom/RRT-Challenge.git
+  ```
 
 2. Generate a Rapidly-Exploring Random Tree (RRT) using:
-
-  `python3 random_tree.py`
-
-  (The number of obstacles can be changed from within the code).
+  ```
+  python3 random_tree.py
+  ```
 
 ## Results
 
