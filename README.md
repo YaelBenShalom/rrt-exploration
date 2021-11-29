@@ -1,4 +1,6 @@
-# RRT Search
+# RRT (Rapidly-Exploring Random Tree) Search
+
+Author: Yael Ben Shalom
 
 ## Table of Contents
 
