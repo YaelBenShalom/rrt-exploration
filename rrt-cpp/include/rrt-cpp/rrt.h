@@ -28,3 +28,16 @@ class Node {
             cost = 0;
         }
 };
+
+
+class Tree {
+    public:
+        Tree(const Tree&) = delete;
+
+        virtual ~Tree() = default;
+
+
+
+        Tree& operator=(const Tree&) = delete;
+
+};
